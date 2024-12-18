@@ -1,6 +1,9 @@
 use core::clone;
-pub trait Clone: clone::Clone {
+pub trait Clone: Sized
+where
+    Self: clone::Clone,
+{
     fn clone(&self) -> Self {
-        clone::Clone::clone(&self)
+        clone::Clone::clone(self)
     }
 }

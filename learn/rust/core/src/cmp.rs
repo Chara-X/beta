@@ -1,7 +1,36 @@
 use core::cmp;
-pub trait PartialEq<Rhs: ?Sized = Self>: cmp::PartialEq<Rhs> {
+pub trait PartialEq<Rhs: ?Sized = Self>
+where
+    Self: cmp::PartialEq<Rhs>,
+{
     fn eq(&self, other: &Rhs) -> bool {
         cmp::PartialEq::eq(self, other)
     }
 }
-pub trait Eq: PartialEq<Self> {}
+pub trait Ord: Eq + PartialOrd<Self>
+where
+    Self: cmp::Ord,
+{
+    fn cmp(&self, other: &Self) -> cmp::Ordering {
+        cmp::Ord::cmp(self, other)
+    }
+}
+pub fn max<T: Ord>(v1: T, v2: T) -> T
+where
+    T: cmp::Ord,
+{
+    cmp::max(v1, v2)
+}
+pub fn max_by<T, F>(v1: T, v2: T, compare: F) -> T
+where
+    F: Fn(&T, &T) -> cmp::Ordering,
+{
+    cmp::max_by(v1, v2, compare)
+}
+pub fn max_by_key<T, B, F>(v1: T, v2: T, f: F) -> T
+where
+    F: Fn(&T) -> B,
+    B: cmp::Ord,
+{
+    cmp::max_by_key(v1, v2, f)
+}
