@@ -1,0 +1,11 @@
+# Request: 
+OPTIONS
+Origin: "<scheme>://<hostname>:<port>"
+# Response:
+Access-Control-Allow-Methods: <method>, ...
+Access-Control-Allow-Methods: *
+Access-Control-Allow-Origin: "<orgin>
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Headers: <header-name>, ...
+Access-Control-Allow-Headers: *
+Access-Control-Allow-Credentials: true

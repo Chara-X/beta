@@ -1,0 +1,4 @@
+# Response:
+Age: 0
+Cache-Control: max-age=60, no-cache, no-store
+Vary: <header-name>, ...
