@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 
-pip install -U package
-pip show package
-pip list
-pip uninstall package
+pip3 install -U package
+pip3 show package
+pip3 list
+pip3 uninstall package

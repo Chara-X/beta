@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 
-python script arguments
-python -m module-name arguments
-python -m venv env-dir
+python3 script arguments
+python3 -m module-name arguments
+python3 -m venv env-dir
 python3
