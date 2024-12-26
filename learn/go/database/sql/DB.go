@@ -1,8 +1,15 @@
 package sql
 
-type DB struct{}
+import "database/sql"
 
-func Open(driverName, dataSourceName string) (*DB, error)
-func (db *DB) Begin() (*Tx, error)
-func (db *DB) Query(query string, args ...any) (*Rows, error)
-func (db *DB) Close() error
+type DB struct{ db *sql.DB }
+
+func Open(driverName, dataSourceName string) (*DB, error) {
+	var db, err = sql.Open(driverName, dataSourceName)
+	return &DB{db}, err
+}
+func (db *DB) Begin() (*Tx, error) {
+	var tx, err = db.db.Begin()
+	return &Tx{tx}, err
+}
+func (db *DB) Close() error { return db.db.Close() }
