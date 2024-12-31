@@ -1,3 +1,3 @@
 #!/usr/bin/bash
 
-playwright install --with-deps
+playwright install --with-deps --only-shell
