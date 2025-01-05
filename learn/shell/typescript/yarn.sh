@@ -1,4 +1,4 @@
 #!/usr/bin/bash
 
-yarn upgrade
+yarn install
 yarn run

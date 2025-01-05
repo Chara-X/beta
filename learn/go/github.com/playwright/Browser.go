@@ -3,15 +3,17 @@ package playwright
 import "github.com/playwright-community/playwright-go"
 
 type Browser interface {
-	playwright.EventEmitter
 	Version() string
-	BrowserType() playwright.BrowserType
-	Contexts() []playwright.BrowserContext
-	NewPage(options ...playwright.BrowserNewPageOptions) (playwright.Page, error)
-	NewBrowserCDPSession() (playwright.CDPSession, error)
-	NewContext(options ...playwright.BrowserNewContextOptions) (playwright.BrowserContext, error)
+	NewPage(options ...playwright.BrowserNewPageOptions) (Page, error)
 	Close(options ...playwright.BrowserCloseOptions) error
-	StartTracing(options ...playwright.BrowserStartTracingOptions) error
-	StopTracing() ([]byte, error)
-	OnDisconnected(fn func(Browser))
+}
+type browser struct{ b playwright.Browser }
+
+func (b *browser) Version() string { return b.b.Version() }
+func (b *browser) NewPage(options ...playwright.BrowserNewPageOptions) (Page, error) {
+	var p, err = b.b.NewPage(options...)
+	return &page{p: p}, err
+}
+func (b *browser) Close(options ...playwright.BrowserCloseOptions) error {
+	return b.b.Close(options...)
 }
