@@ -1,4 +1,3 @@
-mod lazy_lock;
+//! [std::sync]
 mod mutex;
-pub use self::lazy_lock::*;
 pub use self::mutex::*;

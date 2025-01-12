@@ -1,15 +1,16 @@
+use std::marker;
 use std::sync;
+/// [sync::Mutex]
 pub struct Mutex<T: ?Sized> {
-    refer: sync::Mutex<T>,
+    _mk: marker::PhantomData<T>,
 }
-
 impl<T> Mutex<T> {
+    /// [sync::Mutex::new]
     pub const fn new(t: T) -> Mutex<T> {
-        Mutex {
-            refer: sync::Mutex::new(t),
-        }
+        todo!()
     }
+    /// [sync::Mutex::lock]
     pub fn lock(&self) -> sync::LockResult<sync::MutexGuard<'_, T>> {
-        self.refer.lock()
+        todo!()
     }
 }
