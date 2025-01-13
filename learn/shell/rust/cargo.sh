@@ -2,6 +2,6 @@
 
 cargo install crate
 cargo init
-cargo test
+cargo test -- --show-output --test-threads 0
 cargo build -r
 cargo doc
