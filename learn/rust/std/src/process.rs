@@ -1,5 +1,5 @@
 //! [process]
-use std::{ffi, io, process};
+use std::{ffi, io, path, process};
 /// [process::id]
 pub fn id() -> u32 {
     todo!()
@@ -13,6 +13,10 @@ pub struct Command {}
 impl Command {
     /// [process::Command::new]
     pub fn new<S: AsRef<ffi::OsStr>>(program: S) -> Command {
+        todo!()
+    }
+    /// [process::Command::current_dir]
+    pub fn current_dir<P: AsRef<path::Path>>(&mut self, dir: P) -> &mut Command {
         todo!()
     }
     /// [process::Command::arg]

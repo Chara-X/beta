@@ -6,6 +6,7 @@ pub mod clone;
 pub mod cmp;
 pub mod convert;
 pub mod default;
+pub mod env;
 pub mod fs;
 pub mod io;
 pub mod iter;
