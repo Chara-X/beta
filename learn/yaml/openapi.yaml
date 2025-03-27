@@ -1,0 +1,69 @@
+openapi: 3.0.0
+info:
+  title: OpenAPI 3.0.X
+  version: 0.0.0
+servers:
+  - url: https://openapis.org
+    description: ""
+tags:
+  - name: ""
+paths:
+  /{route}:
+    post:
+      operationId: ""
+      description: ""
+      parameters:
+        - name: ""
+          description: ""
+          in: path
+          schema:
+            type: string
+          required: true
+      requestBody:
+        description: ""
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas"
+        required: true
+      responses:
+        "200":
+          description: ""
+          headers:
+            "":
+              required: false
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                type: object
+                items:
+                  $ref: "#/components/schemas/"
+components:
+  schemas:
+    "":
+      type: object
+      properties:
+        "":
+          type: array
+          items:
+            type: integer
+            format: int32
+            minimum: 0
+            maximum: 0
+            minLength: 0
+            maxLength: 0
+            pattern: "*"
+            enum:
+              - ""
+              - 0
+            default: 0
+          minItems: 0
+          maxItems: 0
+      required:
+        - ""
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer

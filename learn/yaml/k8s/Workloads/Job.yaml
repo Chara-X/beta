@@ -1,0 +1,17 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: ""
+  namespace: ""
+  labels: {}
+  annotations: {}
+spec:
+  parallelism: 0
+  template: {}
+  completions: 0
+  activeDeadlineSeconds: 0
+  ttlSecondsAfterFinished: 0
+status:
+  active: 0
+  succeeded: 0
+  failed: 0

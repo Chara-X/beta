@@ -1,0 +1,3 @@
+#!/usr/bin/bash
+
+tar -cxzf archive file...

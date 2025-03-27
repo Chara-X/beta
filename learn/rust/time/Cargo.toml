@@ -1,0 +1,8 @@
+[package]
+name = "time"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+time = { version = "*", features = ["local-offset", "parsing", "formatting"] }
+time-macros = { version = "0.2.0-alpha.1" }

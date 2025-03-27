@@ -1,0 +1,89 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ""
+  namespace: ""
+  labels: {}
+  annotations: {}
+spec:
+  # Containers
+  containers:
+    - name: ""
+      image: ""
+      imagePullPolicy: Always
+      command: []
+      ports:
+        - containerPort: 0
+      env:
+        - name: ""
+          value: ""
+        - name: ""
+          valueFrom:
+            configMapKeyRef:
+              name: ""
+              key: ""
+      volumeMounts:
+        - name: ""
+          mountPath: ""
+      resources:
+        limits: { cpu: "", memory: "" }
+        requests: {}
+      lifecycle:
+        postStart:
+          exec:
+            command: []
+        preStop:
+          exec:
+            command: []
+      livenessProbe:
+        exec:
+          command: []
+      readinessProbe:
+        exec:
+          command: []
+  # Volumes
+  volumes:
+    - name: ""
+      emptyDir: {}
+    - name: ""
+      configMap:
+        name: ""
+        items:
+          - key: ""
+            path: ""
+    - name: ""
+      hostPath:
+        path: ""
+    - name: ""
+      nfs:
+        server: ""
+        path: ""
+  # Scheduling
+  nodeName: ""
+  schedulerName: ""
+  nodeSelector: {}
+  affinity:
+    podAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        - topologyKey: "kubernetes.io/hostname"
+          labelSelector:
+            matchLabels: {}
+    podAntiAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        - topologyKey: "kubernetes.io/hostname"
+          labelSelector:
+            matchLabels: {}
+  tolerations:
+    - key: ""
+      operator: "Equal"
+      value: ""
+  # Lifecycle
+  restartPolicy: Always
+  # Service account
+  serviceAccountName: ""
+status:
+  hostIP: ""
+  podIP: ""
+  phase: Running
+  message: ""
+  reason: ""

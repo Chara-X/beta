@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: Node
+metadata:
+  name: ""
+  labels: {}
+  annotations: {}
+spec:
+  taints:
+    - key: ""
+      value: ""
+      effect: "NoSchedule"
+  unschedulable: false
+status:
+  addresses:
+    - type: Hostname
+      address: “”
+  capacity: {}
+  images:
+    - names: []
+      sizeBytes: 0
+  nodeInfo:
+    architecture: ""
+    operatingSystem: ""
+    osImage: ""
+    kernelVersion: ""
+    containerRuntimeVersion: ""
+    kubeletVersion: ""
+    kubeProxyVersion: ""
+    machineID: ""
+    bootID: ""
+    systemUUID: ""

@@ -1,0 +1,15 @@
+[package]
+name = "kube"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+kube = { version = "*", features = ["ws"] }
+k8s-openapi = { version = "*", features = ["latest"] }
+http = "*"
+serde = "*"
+futures = "*"
+either = "*"
+json-patch = "*"
+tokio = { version = "*", features = ["io-util", "io-std"] }
+serde_json = "*"

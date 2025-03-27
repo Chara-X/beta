@@ -1,0 +1,910 @@
+openapi: 3.0.0
+info:
+  title: APTS OpenAPI Docs
+  version: 0.0.0
+tags:
+  - name: HealthCheck
+  - name: CCLInspection
+  - name: VCJobEvents
+  - name: NamespaceConfig
+  - name: ClRdmaInspectionConfig
+  - name: ModelInspectionConfig
+  - name: RDMAInspection
+  - name: ModelInspection
+paths:
+  /opapi/wsm/v1/apts/clrdmainspectionconfig:
+    post:
+      operationId: ClRdmaInspectionConfig_update
+      parameters: []
+      responses:
+        "204":
+          description: "There is no content to send for this request, but the headers may be useful. "
+      tags:
+        - ClRdmaInspectionConfig
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ClRdmaInspectionConfig.Request"
+    get:
+      operationId: ClRdmaInspectionConfig_get
+      parameters: []
+      responses:
+        "200":
+          description: The request has succeeded.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ClRdmaInspectionConfig.Response"
+      tags:
+        - ClRdmaInspectionConfig
+  /opapi/wsm/v1/apts/healthcheck:
+    post:
+      operationId: HealthCheck_create
+      parameters: []
+      responses:
+        "204":
+          description: "There is no content to send for this request, but the headers may be useful. "
+      tags:
+        - HealthCheck
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/HealthCheck.Request"
+    get:
+      operationId: HealthCheck_get
+      parameters: []
+      responses:
+        "200":
+          description: The request has succeeded.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HealthCheck.Response"
+      tags:
+        - HealthCheck
+  /opapi/wsm/v1/apts/modelinspection:
+    post:
+      operationId: ModelInspection_create
+      parameters: []
+      responses:
+        "204":
+          description: "There is no content to send for this request, but the headers may be useful. "
+      tags:
+        - ModelInspection
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ModelInspection.Request"
+    get:
+      operationId: ModelInspection_get
+      parameters: []
+      responses:
+        "200":
+          description: The request has succeeded.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ModelInspection.Response"
+      tags:
+        - ModelInspection
+  /opapi/wsm/v1/apts/modelinspectionconfig:
+    post:
+      operationId: ModelInspectionConfig_update
+      parameters: []
+      responses:
+        "204":
+          description: "There is no content to send for this request, but the headers may be useful. "
+      tags:
+        - ModelInspectionConfig
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ModelInspectionConfig.Request"
+    get:
+      operationId: ModelInspectionConfig_get
+      parameters: []
+      responses:
+        "200":
+          description: The request has succeeded.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ModelInspectionConfig.Response"
+      tags:
+        - ModelInspectionConfig
+  /opapi/wsm/v1/apts/namespace:
+    post:
+      operationId: NamespaceConfig_update
+      parameters: []
+      responses:
+        "204":
+          description: "There is no content to send for this request, but the headers may be useful. "
+      tags:
+        - NamespaceConfig
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/NamespaceConfig.Request"
+    get:
+      operationId: NamespaceConfig_get
+      parameters: []
+      responses:
+        "200":
+          description: The request has succeeded.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/NamespaceConfig.Response"
+      tags:
+        - NamespaceConfig
+  /opapi/wsm/v1/apts/rdma/querybandwidth:
+    get:
+      operationId: RDMAInspection_get
+      parameters: []
+      responses:
+        "200":
+          description: The request has succeeded.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RDMAInspection.Response"
+      tags:
+        - RDMAInspection
+  /opapi/wsm/v1/apts/rdma/submit:
+    post:
+      operationId: RDMAInspection_create
+      parameters: []
+      responses:
+        "204":
+          description: "There is no content to send for this request, but the headers may be useful. "
+      tags:
+        - RDMAInspection
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/RDMAInspection.Request"
+  /opapi/wsm/v1/apts/scclinspection/query:
+    get:
+      operationId: CCLInspection_get
+      parameters: []
+      responses:
+        "200":
+          description: The request has succeeded.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CCLInspection.Response"
+      tags:
+        - CCLInspection
+  /opapi/wsm/v1/apts/scclinspection/start:
+    post:
+      operationId: CCLInspection_create
+      parameters: []
+      responses:
+        "204":
+          description: "There is no content to send for this request, but the headers may be useful. "
+      tags:
+        - CCLInspection
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CCLInspection.Request"
+  /opapi/wsm/v1/apts/vcjobevents/{ns}/{name}:
+    get:
+      operationId: VCJobEvents_get
+      parameters:
+        - name: ns
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: The request has succeeded.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/VCJobEvents.Response"
+      tags:
+        - VCJobEvents
+components:
+  schemas:
+    CCLInspection.Output:
+      type: object
+      required:
+        - diag_exec_errmsg
+        - diag_fail_count
+        - gpuUUID
+        - node_name
+        - result
+        - vendor
+      properties:
+        diag_exec_errmsg:
+          type: string
+        diag_fail_count:
+          type: integer
+          format: uint32
+        gpuUUID:
+          type: string
+        node_name:
+          type: string
+        result:
+          type: string
+        vendor:
+          type: string
+    CCLInspection.Request:
+      type: object
+      required:
+        - inspectType
+        - cclType
+        - command
+        - gpuPerNode
+        - nodeList
+        - testScene
+        - outAlgbw
+        - outBusbw
+        - inAlgbw
+        - inBusbw
+      properties:
+        inspectType:
+          type: string
+        cclType:
+          type: string
+        command:
+          type: string
+        gpuPerNode:
+          type: integer
+          format: uint32
+        nodeList:
+          type: array
+          items:
+            type: string
+        testScene:
+          type: string
+        outAlgbw:
+          type: integer
+          format: uint32
+        outBusbw:
+          type: integer
+          format: uint32
+        inAlgbw:
+          type: integer
+          format: uint32
+        inBusbw:
+          type: integer
+          format: uint32
+    CCLInspection.Response:
+      type: object
+      required:
+        - diag_created
+        - diag_gpu_outputs
+        - diag_total_count
+        - inspect_type
+        - status
+        - task_result_summary
+      properties:
+        diag_created:
+          type: string
+        diag_gpu_outputs:
+          type: array
+          items:
+            $ref: "#/components/schemas/CCLInspection.Output"
+        diag_total_count:
+          type: integer
+          format: uint32
+        inspect_type:
+          type: string
+        status:
+          type: string
+        task_result_summary:
+          $ref: "#/components/schemas/CCLInspection.TaskResultSummary"
+    CCLInspection.TaskResultSummary:
+      type: object
+      required:
+        - totalCards
+        - totalChecks
+        - totalUsed
+      properties:
+        totalCards:
+          type: integer
+          format: uint32
+        totalChecks:
+          type: integer
+          format: uint32
+        totalUsed:
+          type: integer
+          format: uint32
+    ClRdmaInspectionConfig.Request:
+      type: object
+      required:
+        - clRdmaInspectionImageName
+      properties:
+        clRdmaInspectionImageName:
+          type: string
+    ClRdmaInspectionConfig.Response:
+      type: object
+      required:
+        - clRdmaInspectionImageName
+      properties:
+        clRdmaInspectionImageName:
+          type: string
+    HealthCheck.Config:
+      type: object
+      required:
+        - rdmaNums
+        - gpuNums
+      properties:
+        rdmaNums:
+          type: integer
+          format: uint32
+        gpuNums:
+          type: integer
+          format: uint32
+        paraNums:
+          type: integer
+          format: uint32
+        storeNums:
+          type: integer
+          format: uint32
+    HealthCheck.GpuAvailabilityCheck:
+      type: string
+      enum:
+        - gpustatus
+        - gpuprocessresidue
+        - gpuresidue
+        - gpudevice
+        - gpuecc
+        - gpupcie
+    HealthCheck.GpuConsistencyCheck:
+      type: string
+      enum:
+        - gpuharddropnum
+        - gpusoftdropnum
+        - gputopo
+        - gpudriver
+        - gpulinkspeed
+    HealthCheck.Item:
+      type: object
+      required:
+        - gpuConsistencyCheck
+        - rdmaConsistencyCheck
+        - gpuAvailabilityCheck
+        - rdmaAvailabilityCheck
+        - serverVerCheck
+      properties:
+        gpuConsistencyCheck:
+          type: array
+          items:
+            $ref: "#/components/schemas/HealthCheck.GpuConsistencyCheck"
+        rdmaConsistencyCheck:
+          type: array
+          items:
+            $ref: "#/components/schemas/HealthCheck.RdmaConsistencyCheck"
+        gpuAvailabilityCheck:
+          type: array
+          items:
+            $ref: "#/components/schemas/HealthCheck.GpuAvailabilityCheck"
+        rdmaAvailabilityCheck:
+          type: array
+          items:
+            $ref: "#/components/schemas/HealthCheck.GpuAvailabilityCheck"
+        serverVerCheck:
+          type: array
+          items:
+            type: string
+    HealthCheck.RdmaAvailabilityCheck:
+      type: string
+      enum:
+        - rdmaparalink
+        - rdmastorelink
+        - rdmaparaspeed
+        - rdmastorespeed
+        - rdmaparafibre
+        - rdmastorefibre
+        - rdmastatus
+        - rdmaconfiguration
+        - rdmapolicy
+    HealthCheck.RdmaConsistencyCheck:
+      type: string
+      enum:
+        - rdmaportnum
+        - rdmamtu
+        - rdmaparaver
+        - rdmastorever
+        - rdmaresource
+    HealthCheck.Request:
+      type: object
+      required:
+        - object
+        - checkSubInfo
+        - healthCheckCfg
+      properties:
+        object:
+          type: string
+        checkSubInfo:
+          $ref: "#/components/schemas/HealthCheck.Item"
+        healthCheckCfg:
+          $ref: "#/components/schemas/HealthCheck.Config"
+    HealthCheck.Response:
+      type: object
+      required:
+        - result
+        - status
+        - startTime
+        - endTime
+        - vendor
+        - nodeNum
+        - gpuNum
+      properties:
+        result:
+          type: array
+          items:
+            $ref: "#/components/schemas/HealthCheck.Result"
+        status:
+          type: string
+        startTime:
+          type: string
+        endTime:
+          type: string
+        vendor:
+          type: string
+        nodeNum:
+          type: integer
+          format: uint32
+        gpuNum:
+          type: integer
+          format: uint32
+        paraNum:
+          type: integer
+          format: uint32
+        storeNum:
+          type: integer
+          format: uint32
+    HealthCheck.Result:
+      type: object
+      required:
+        - object
+        - objectId
+        - checkType
+        - checkSubItem
+        - subResult
+        - checkDetail
+        - checkDetailEn
+        - status
+        - startTime
+        - endTime
+        - showDetail
+      properties:
+        object:
+          type: string
+        objectId:
+          type: array
+          items:
+            type: string
+        checkType:
+          type: string
+        checkSubItem:
+          type: string
+        subResult:
+          type: string
+        checkDetail:
+          type: string
+        checkDetailEn:
+          type: string
+        status:
+          type: string
+        startTime:
+          type: string
+        endTime:
+          type: string
+        showDetail:
+          type: boolean
+    ModelInspection.AiModelTrainResultSpec:
+      type: object
+      required:
+        - modelName
+        - modelImageName
+        - gpuFactory
+        - gpuTotal
+        - cpuPerNode
+        - gpuPerNode
+        - memoryPerNode
+        - superParam
+        - nodeNum
+        - exceResult
+        - status
+        - testResult
+        - testResultZh
+        - testScene
+        - startTime
+        - endTime
+        - pvc
+        - datasetName
+      properties:
+        modelName:
+          type: string
+        modelImageName:
+          type: string
+        gpuFactory:
+          type: string
+        gpuTotal:
+          type: integer
+        cpuPerNode:
+          type: integer
+        gpuPerNode:
+          type: integer
+        memoryPerNode:
+          type: integer
+        superParam:
+          type: string
+        nodeNum:
+          type: integer
+        exceResult:
+          type: string
+        status:
+          type: string
+        testResult:
+          type: string
+        testResultZh:
+          type: string
+        testScene:
+          type: string
+        startTime:
+          type: string
+        endTime:
+          type: string
+        pvc:
+          type: string
+        datasetName:
+          type: string
+    ModelInspection.Request:
+      type: object
+      required:
+        - gpuTotal
+        - gpuPerNode
+        - taskId
+        - nodeList
+        - superParam
+        - cmd
+        - cpuPerNode
+        - memoryPerNode
+        - gpuFactory
+        - pvcEnable
+        - pvcSize
+        - pvcNamespace
+        - pvcName
+        - datasetName
+        - modelImageName
+        - modelImageTag
+        - modelImagePullPolicy
+        - modelImagePullSecrets
+      properties:
+        gpuTotal:
+          type: integer
+        gpuPerNode:
+          type: integer
+        taskId:
+          type: string
+        nodeList:
+          type: array
+          items:
+            type: string
+        superParam:
+          type: string
+        cmd:
+          type: string
+        cpuPerNode:
+          type: integer
+        memoryPerNode:
+          type: integer
+        gpuFactory:
+          type: string
+        pvcEnable:
+          type: string
+        pvcSize:
+          type: string
+        pvcNamespace:
+          type: string
+        pvcName:
+          type: string
+        datasetName:
+          type: string
+        modelImageName:
+          type: string
+        modelImageTag:
+          type: string
+        modelImagePullPolicy:
+          type: string
+        modelImagePullSecrets:
+          type: array
+          items:
+            type: string
+    ModelInspection.Response:
+      type: object
+      required:
+        - ModelTrainResults
+      properties:
+        ModelTrainResults:
+          type: array
+          items:
+            $ref: "#/components/schemas/ModelInspection.AiModelTrainResultSpec"
+    ModelInspectionConfig.Request:
+      type: object
+      required:
+        - codePath
+        - firstStepTimeout
+        - generalShellPath
+        - modelImageName
+        - modelName
+        - nonFirstStepTimeout
+        - perfOptShellPath
+      properties:
+        codePath:
+          type: string
+        firstStepTimeout:
+          type: integer
+        generalShellPath:
+          type: string
+        modelImageName:
+          type: string
+        modelName:
+          type: string
+        nonFirstStepTimeout:
+          type: integer
+        perfOptShellPath:
+          type: string
+    ModelInspectionConfig.Response:
+      type: object
+      required:
+        - codePath
+        - firstStepTimeout
+        - generalShellPath
+        - modelImageName
+        - modelName
+        - nonFirstStepTimeout
+        - perfOptShellPath
+      properties:
+        codePath:
+          type: string
+        firstStepTimeout:
+          type: integer
+        generalShellPath:
+          type: string
+        modelImageName:
+          type: string
+        modelName:
+          type: string
+        nonFirstStepTimeout:
+          type: integer
+        perfOptShellPath:
+          type: string
+    NamespaceConfig.Request:
+      type: object
+      required:
+        - nameSpace
+      properties:
+        nameSpace:
+          type: string
+    NamespaceConfig.Response:
+      type: object
+      required:
+        - nameSpace
+      properties:
+        nameSpace:
+          type: string
+    RDMAInspection.RDMAResult:
+      type: object
+      required:
+        - localNodeName
+        - localRdmaInterface
+        - localNetDev
+        - localPci
+        - localLinkSpeed
+        - remoteNodeName
+        - remoteRdmaInterface
+        - remoteNetDev
+        - remotePci
+        - remoteLinkSpeed
+        - testResult
+        - errInfo
+        - errInfoZh
+        - bandWidth
+      properties:
+        localNodeName:
+          type: string
+        localRdmaInterface:
+          type: string
+        localNetDev:
+          type: string
+        localPci:
+          type: string
+        localLinkSpeed:
+          type: string
+        remoteNodeName:
+          type: string
+        remoteRdmaInterface:
+          type: string
+        remoteNetDev:
+          type: string
+        remotePci:
+          type: string
+        remoteLinkSpeed:
+          type: string
+        testResult:
+          type: string
+        errInfo:
+          type: string
+        errInfoZh:
+          type: string
+        bandWidth:
+          type: number
+    RDMAInspection.Request:
+      type: object
+      required:
+        - testScene
+        - bandWidthThreshold
+        - nodeList
+        - rdmaPerNode
+      properties:
+        testScene:
+          type: string
+        bandWidthThreshold:
+          type: integer
+        nodeList:
+          type: array
+          items:
+            type: string
+        rdmaPerNode:
+          type: integer
+    RDMAInspection.Response:
+      type: object
+      required:
+        - bandWidthThreshold
+      properties:
+        testRdmaResultList:
+          type: array
+          items:
+            $ref: "#/components/schemas/RDMAInspection.RDMAResult"
+        testScene:
+          type: string
+        status:
+          type: string
+        testRdmaResult:
+          type: string
+        errInfo:
+          type: string
+        errInfoZh:
+          type: string
+        testNodeNum:
+          type: integer
+        testRdmaNum:
+          type: integer
+        bandWidthThreshold:
+          type: integer
+    VCJobEvents.Condition:
+      type: object
+      required:
+        - type
+        - status
+        - lastProbeTime
+        - lastTransitionTime
+        - reason
+        - message
+      properties:
+        type:
+          type: string
+        status:
+          type: string
+        lastProbeTime:
+          type: string
+        lastTransitionTime:
+          type: string
+        reason:
+          type: string
+        message:
+          type: string
+    VCJobEvents.ResourceEventInfo:
+      type: object
+      required:
+        - name
+        - namespace
+        - type
+        - message
+        - time
+      properties:
+        name:
+          type: string
+        namespace:
+          type: string
+        type:
+          type: string
+        message:
+          type: string
+        time:
+          type: string
+    VCJobEvents.Response:
+      type: object
+      required:
+        - name
+        - namespace
+        - state
+        - phase
+        - creationTimestamp
+        - duration
+        - minAvailable
+        - running
+        - uid
+        - conditions
+        - jobInfo
+        - podInfo
+        - gpuInfo
+        - rdmaDeviceInfo
+        - gpuTrainInfo
+      properties:
+        name:
+          type: string
+        namespace:
+          type: string
+        state:
+          type: string
+        phase:
+          type: string
+        creationTimestamp:
+          type: string
+        duration:
+          type: string
+        minAvailable:
+          type: integer
+          format: int32
+        running:
+          type: integer
+          format: int32
+        uid:
+          type: string
+        conditions:
+          type: array
+          items:
+            $ref: "#/components/schemas/VCJobEvents.Condition"
+        jobInfo:
+          type: array
+          items:
+            $ref: "#/components/schemas/VCJobEvents.ResourceEventInfo"
+        podInfo:
+          type: array
+          items:
+            $ref: "#/components/schemas/VCJobEvents.ResourceEventInfo"
+        gpuInfo:
+          type: array
+          items:
+            $ref: "#/components/schemas/VCJobEvents.ResourceEventInfo"
+        rdmaDeviceInfo:
+          type: array
+          items:
+            $ref: "#/components/schemas/VCJobEvents.ResourceEventInfo"
+        gpuTrainInfo:
+          type: array
+          items:
+            $ref: "#/components/schemas/VCJobEvents.ResourceEventInfo"
+servers:
+  - url: https://10.166.209.110
+    description: OpenPalette cluster-cim2
+    variables: {}

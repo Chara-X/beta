@@ -1,0 +1,15 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: ""
+  namespace: ""
+  labels: {}
+  annotations: {}
+spec:
+  selector:
+    matchLabels: {}
+  replicas: 0
+  template: {}
+status:
+  replicas: 0
+  readyReplicas: 0

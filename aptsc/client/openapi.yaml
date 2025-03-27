@@ -1,0 +1,345 @@
+openapi: 3.0.0
+info:
+  title: APTS OpenAPI Docs
+  version: 0.0.0
+tags:
+  - name: HealthCheck
+  - name: CCL inspection
+paths:
+  /opapi/wsm/v1/apts/healthcheck:
+    post:
+      operationId: HealthCheck_create
+      parameters: []
+      responses:
+        '204':
+          description: 'There is no content to send for this request, but the headers may be useful. '
+      tags:
+        - HealthCheck
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/HealthCheck.Request'
+    get:
+      operationId: HealthCheck_get
+      parameters: []
+      responses:
+        '200':
+          description: The request has succeeded.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HealthCheck.Response'
+      tags:
+        - HealthCheck
+  /opapi/wsm/v1/apts/scclinspection/query:
+    get:
+      operationId: CCLInspection_get
+      parameters: []
+      responses:
+        '200':
+          description: The request has succeeded.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CCLInspection.Response'
+      tags:
+        - CCL inspection
+  /opapi/wsm/v1/apts/scclinspection/start:
+    post:
+      operationId: CCLInspection_create
+      parameters: []
+      responses:
+        '204':
+          description: 'There is no content to send for this request, but the headers may be useful. '
+      tags:
+        - CCL inspection
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CCLInspection.Request'
+components:
+  schemas:
+    CCLInspection.Output:
+      type: object
+      required:
+        - diag_exec_errmsg
+        - diag_fail_count
+        - gpuUUID
+        - node_name
+        - result
+        - vendor
+      properties:
+        diag_exec_errmsg:
+          type: string
+        diag_fail_count:
+          type: integer
+          format: uint32
+        gpuUUID:
+          type: string
+        node_name:
+          type: string
+        result:
+          type: string
+        vendor:
+          type: string
+    CCLInspection.Request:
+      type: object
+      required:
+        - inspectType
+        - cclType
+        - command
+        - gpuPerNode
+        - nodeList
+        - testScene
+        - outAlgbw
+        - outBusbw
+        - inAlgbw
+        - inBusbw
+      properties:
+        inspectType:
+          type: string
+        cclType:
+          type: string
+        command:
+          type: string
+        gpuPerNode:
+          type: integer
+          format: uint32
+        nodeList:
+          type: array
+          items:
+            type: string
+        testScene:
+          type: string
+        outAlgbw:
+          type: integer
+          format: uint32
+        outBusbw:
+          type: integer
+          format: uint32
+        inAlgbw:
+          type: integer
+          format: uint32
+        inBusbw:
+          type: integer
+          format: uint32
+    CCLInspection.Response:
+      type: object
+      required:
+        - diag_created
+        - diag_gpu_outputs
+        - diag_total_count
+        - inspect_type
+        - status
+        - task_result_summary
+      properties:
+        diag_created:
+          type: string
+        diag_gpu_outputs:
+          type: array
+          items:
+            $ref: '#/components/schemas/CCLInspection.Output'
+        diag_total_count:
+          type: integer
+          format: uint32
+        inspect_type:
+          type: string
+        status:
+          type: string
+        task_result_summary:
+          $ref: '#/components/schemas/CCLInspection.TaskResultSummary'
+    CCLInspection.TaskResultSummary:
+      type: object
+      required:
+        - totalCards
+        - totalChecks
+        - totalUsed
+      properties:
+        totalCards:
+          type: integer
+          format: uint32
+        totalChecks:
+          type: integer
+          format: uint32
+        totalUsed:
+          type: integer
+          format: uint32
+    HealthCheck.Config:
+      type: object
+      required:
+        - rdmaNums
+        - gpuNums
+      properties:
+        rdmaNums:
+          type: integer
+          format: uint32
+        gpuNums:
+          type: integer
+          format: uint32
+        paraNums:
+          type: integer
+          format: uint32
+        storeNums:
+          type: integer
+          format: uint32
+    HealthCheck.GpuAvailabilityCheck:
+      type: string
+      enum:
+        - gpustatus
+        - gpuprocessresidue
+        - gpuresidue
+        - gpudevice
+        - gpuecc
+        - gpupcie
+    HealthCheck.GpuConsistencyCheck:
+      type: string
+      enum:
+        - gpuharddropnum
+        - gpusoftdropnum
+        - gputopo
+        - gpudriver
+        - gpulinkspeed
+    HealthCheck.Item:
+      type: object
+      required:
+        - gpuConsistencyCheck
+        - rdmaConsistencyCheck
+        - gpuAvailabilityCheck
+        - rdmaAvailabilityCheck
+        - serverVerCheck
+      properties:
+        gpuConsistencyCheck:
+          type: array
+          items:
+            $ref: '#/components/schemas/HealthCheck.GpuConsistencyCheck'
+        rdmaConsistencyCheck:
+          type: array
+          items:
+            $ref: '#/components/schemas/HealthCheck.RdmaConsistencyCheck'
+        gpuAvailabilityCheck:
+          type: array
+          items:
+            $ref: '#/components/schemas/HealthCheck.GpuAvailabilityCheck'
+        rdmaAvailabilityCheck:
+          type: array
+          items:
+            $ref: '#/components/schemas/HealthCheck.GpuAvailabilityCheck'
+        serverVerCheck:
+          type: array
+          items:
+            type: string
+    HealthCheck.RdmaAvailabilityCheck:
+      type: string
+      enum:
+        - rdmaparalink
+        - rdmastorelink
+        - rdmaparaspeed
+        - rdmastorespeed
+        - rdmaparafibre
+        - rdmastorefibre
+        - rdmastatus
+        - rdmaconfiguration
+        - rdmapolicy
+    HealthCheck.RdmaConsistencyCheck:
+      type: string
+      enum:
+        - rdmaportnum
+        - rdmamtu
+        - rdmaparaver
+        - rdmastorever
+        - rdmaresource
+    HealthCheck.Request:
+      type: object
+      required:
+        - object
+        - checkSubInfo
+        - healthCheckCfg
+      properties:
+        object:
+          type: string
+        checkSubInfo:
+          $ref: '#/components/schemas/HealthCheck.Item'
+        healthCheckCfg:
+          $ref: '#/components/schemas/HealthCheck.Config'
+    HealthCheck.Response:
+      type: object
+      required:
+        - result
+        - status
+        - startTime
+        - endTime
+        - vendor
+        - nodeNum
+        - gpuNum
+      properties:
+        result:
+          type: array
+          items:
+            $ref: '#/components/schemas/HealthCheck.Result'
+        status:
+          type: string
+        startTime:
+          type: string
+        endTime:
+          type: string
+        vendor:
+          type: string
+        nodeNum:
+          type: integer
+          format: uint32
+        gpuNum:
+          type: integer
+          format: uint32
+        paraNum:
+          type: integer
+          format: uint32
+        storeNum:
+          type: integer
+          format: uint32
+    HealthCheck.Result:
+      type: object
+      required:
+        - object
+        - objectId
+        - checkType
+        - checkSubItem
+        - subResult
+        - checkDetail
+        - checkDetailEn
+        - status
+        - startTime
+        - endTime
+        - showDetail
+      properties:
+        object:
+          type: string
+        objectId:
+          type: array
+          items:
+            type: string
+        checkType:
+          type: string
+        checkSubItem:
+          type: string
+        subResult:
+          type: string
+        checkDetail:
+          type: string
+        checkDetailEn:
+          type: string
+        status:
+          type: string
+        startTime:
+          type: string
+        endTime:
+          type: string
+        showDetail:
+          type: boolean
+servers:
+  - url: https://10.166.209.110
+    description: OpenPalette cluster-cim2
+    variables: {}

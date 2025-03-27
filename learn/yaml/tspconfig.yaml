@@ -1,0 +1,4 @@
+output-dir: "{cwd}/typespec-build"
+warn-as-error: true
+emit:
+  - "@typespec/openapi3"

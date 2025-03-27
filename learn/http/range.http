@@ -1,0 +1,4 @@
+# Request:
+Range: <unit>=<range-start>-<range-end>
+# Response:
+Content-Range: <unit> <range-start>-<range-end>/<size>

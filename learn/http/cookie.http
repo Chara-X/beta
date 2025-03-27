@@ -1,0 +1,4 @@
+# Request:
+Cookie: <cookie-name>=<cookie-value>
+# Response:
+Set-Cookie: <cookie-name>=<cookie-value>; Domain=<domain-value>; Path=<path-value>; Expires=<date>; HttpOnly; Secure; SameSite=<sameSite-value>
