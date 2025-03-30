@@ -1,0 +1,17 @@
+Type
+    = TypeName, [ TypeArgs ]
+    | '*', Type
+    | '[', Expression, ']', Type
+    | '[', ']', Type
+    | 'map', '[', Type, ']', Type
+    |  ( 'chan' | 'chan' '<-' | '<-' 'chan' ) ,Type
+    | 'func', Signature
+    | InterfaceType
+    | StructType;
+
+TypeName
+    = identifier
+    | PackageName, ".", identifier;
+
+TypeArgs
+    = '[', Type, { ',', Type }, ']';

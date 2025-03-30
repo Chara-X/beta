@@ -1,0 +1,2 @@
+TypeDecl
+    = 'type', '(', { identifier, [ TypeParameters ], [ '=' ], Type }, ')';

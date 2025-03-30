@@ -1,0 +1,2 @@
+MethodDecl
+    = 'func', Parameters, identifier, Signature, [ '{', { Statement, ';' }, '}' ];

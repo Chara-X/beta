@@ -1,0 +1,3 @@
+InterfaceType
+    = 'interface', '{', { Type, { '|', Type }
+    | identifier, Signature }, '}';

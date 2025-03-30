@@ -1,0 +1,6 @@
+VarDecl
+    = 'var', '(', { identifier, { ',', identifier }, ( Type, [ '=', ExpressionList ]
+    | '=', ExpressionList ) }, ')';
+
+ExpressionList
+    = Expression, { ',', Expression };

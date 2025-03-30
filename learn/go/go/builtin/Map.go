@@ -1,4 +1,4 @@
-package global
+package builtin
 
 type Map[K comparable, V any] map[K]V
 

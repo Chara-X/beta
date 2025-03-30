@@ -1,0 +1,5 @@
+Parameters
+    = '(', [ ParameterDecl, { ',', ParameterDecl } ], ')';
+
+ParameterDecl
+    = [ identifier, { ',', identifier } ], [ '...' ], Type;

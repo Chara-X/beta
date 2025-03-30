@@ -1,0 +1,2 @@
+FunctionDecl
+    = 'func', identifier, [ TypeParameters ], Signature, [ '{', { Statement, ';' }, '}' ];

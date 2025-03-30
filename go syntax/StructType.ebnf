@@ -1,0 +1,3 @@
+StructType
+    = 'struct', '{', { ( identifier, { ',', identifier }, Type
+    | [ '*' ], TypeName, [ TypeArgs ] ), [ Tag ] }, '}';

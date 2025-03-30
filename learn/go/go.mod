@@ -3,6 +3,7 @@ module github.com/Chara-X/go-study
 go 1.24.1
 
 require (
+	bazil.org/fuse v0.0.0-20230120002735-62a210ff1fd5
 	github.com/boltdb/bolt v1.3.1
 	github.com/fsnotify/fsnotify v1.7.0
 	github.com/miekg/dns v1.1.62

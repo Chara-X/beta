@@ -1,4 +1,4 @@
-package global
+package builtin
 
 func NewChannel[T any](capacity int) chan T { return make(chan T, capacity) }
 

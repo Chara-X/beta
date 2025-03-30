@@ -1,6 +1,6 @@
 package promauto
 
-import "github.com/Chara-X/go-study/github.com/prometheus"
+import "github.com/Chara-X/go-study/prometheus"
 
 func NewGauge(opts struct {
 	Name string

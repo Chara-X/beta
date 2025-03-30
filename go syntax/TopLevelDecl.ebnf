@@ -1,0 +1,6 @@
+TopLevelDecl
+    = ConstDecl
+    | VarDecl
+    | FunctionDecl
+    | TypeDecl
+    | MethodDecl;

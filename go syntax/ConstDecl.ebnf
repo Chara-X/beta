@@ -1,0 +1,2 @@
+ConstDecl
+    = 'const', '(', { identifier, { ',', identifier }, [ Type ], '=', Expression, { ',', Expression }, ';' }, ')';

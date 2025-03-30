@@ -1,4 +1,4 @@
-package global
+package builtin
 
 func NewSlice[T any](length, capacity int) []T { return make([]T, length, capacity) }
 
