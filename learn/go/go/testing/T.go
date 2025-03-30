@@ -9,7 +9,10 @@ import (
 )
 
 // [testing.T]
-type T struct{ t *testing.T }
+type T struct {
+	t      *testing.T
+	failed bool
+}
 
 func (c *T) Name() string     { return c.t.Name() }
 func (c *T) TempDir() string  { return c.t.TempDir() }
@@ -75,9 +78,6 @@ func (t *T) Run(name string, f func(t *T)) bool {
 		tstate: t.tstate,
 	}
 	t.w = indenter{&t.common}
-	if t.chatty != nil {
-		t.chatty.Updatef(t.name, "=== RUN   %s\n", t.name)
-	}
 	running.Store(t.name, highPrecisionTimeNow())
 	// Instead of reducing the running count of this test before calling the
 	// tRunner and increasing it afterwards, we rely on tRunner keeping the
@@ -94,9 +94,6 @@ func (t *T) Run(name string, f func(t *T)) bool {
 		// At this point, it is likely that FailNow was called on one of the
 		// parent tests by one of the subtests. Continue aborting up the chain.
 		runtime.Goexit()
-	}
-	if t.chatty != nil && t.chatty.json {
-		t.chatty.Updatef(t.parent.name, "=== NAME  %s\n", t.parent.name)
 	}
 	return !t.failed
 }
