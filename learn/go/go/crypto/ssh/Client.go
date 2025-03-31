@@ -3,7 +3,7 @@ package ssh
 import (
 	"net"
 
-	"github.com/Chara-X/go-study/go/crypto"
+	"github.com/Chara-X/go/go/crypto"
 	"golang.org/x/crypto/ssh"
 )
 

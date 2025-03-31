@@ -2,7 +2,7 @@ package fs
 
 import (
 	"bazil.org/fuse/fs"
-	"github.com/Chara-X/go-study/fuse"
+	"github.com/Chara-X/go/fuse"
 )
 
 var _ fs.FS

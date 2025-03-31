@@ -3,7 +3,7 @@ package template
 import (
 	"io"
 
-	"github.com/Chara-X/go-study/go/text/template/parse"
+	"github.com/Chara-X/go/go/text/template/parse"
 )
 
 type Template struct{ *parse.Tree }
