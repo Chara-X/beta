@@ -14,4 +14,5 @@ type WithWatch interface {
 	Watch(ctx context.Context, obj client.ObjectList, opts ...client.ListOption) (watch.Interface, error)
 }
 
+// [client.NewWithWatch]
 func NewWithWatch(config *rest.Config, options client.Options) (WithWatch, error)
