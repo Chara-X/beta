@@ -1,4 +1,4 @@
-use smol::prelude::*;
+use smol::stream;
 use std::{pin, task, time};
 /// [smol::Timer]
 pub struct Timer {}
@@ -38,7 +38,7 @@ impl Future for Timer {
         todo!()
     }
 }
-impl Stream for Timer {
+impl stream::Stream for Timer {
     type Item = time::Instant;
     fn poll_next(
         self: pin::Pin<&mut Self>,

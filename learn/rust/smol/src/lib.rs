@@ -9,6 +9,7 @@
 #![allow(clippy::should_implement_trait)]
 //! [smol]
 mod block_on;
+pub mod io;
 mod spawn;
 mod task;
 mod timer;
