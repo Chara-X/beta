@@ -7,3 +7,4 @@ edition = "2024"
 async-compat = "*"
 futures = "*"
 tokio = { version = "*", default-features = false, features = ["rt"] }
+pin-project-lite = "*"

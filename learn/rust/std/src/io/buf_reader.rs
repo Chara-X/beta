@@ -1,8 +1,5 @@
 use super::*;
-use std::{
-    cmp,
-    io::{self, Read as _},
-};
+use std::{cmp, io};
 /// [io::BufReader]
 pub struct BufReader<R: ?Sized> {
     buf: Vec<u8>,
@@ -10,7 +7,7 @@ pub struct BufReader<R: ?Sized> {
     filled: usize,
     inner: R,
 }
-impl<R: io::Read> BufReader<R> {
+impl<R: Read> BufReader<R> {
     /// [io::BufReader::new]
     pub fn new(inner: R) -> BufReader<R> {
         BufReader {
@@ -71,13 +68,13 @@ impl<R: ?Sized + Read> Read for BufReader<R> {
 }
 impl<R: ?Sized + Seek> Seek for BufReader<R> {
     fn seek(&mut self, pos: io::SeekFrom) -> io::Result<u64> {
-        let res: u64 = if let io::SeekFrom::Current(n) = pos {
+        let pos: u64 = if let io::SeekFrom::Current(n) = pos {
             self.inner
                 .seek(io::SeekFrom::Current(n - (self.filled - self.pos) as i64))?
         } else {
             self.inner.seek(pos)?
         };
         self.discard_buffer();
-        Ok(res)
+        Ok(pos)
     }
 }

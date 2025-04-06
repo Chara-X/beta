@@ -1,5 +1,5 @@
 use super::*;
-/// [smol::spawn]
+/// [fn@smol::spawn]
 pub fn spawn<T: Send + 'static>(future: impl Future<Output = T> + Send + 'static) -> Task<T> {
     todo!()
 }

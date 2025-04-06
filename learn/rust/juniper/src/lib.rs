@@ -7,6 +7,16 @@
 #![allow(clippy::module_inception)]
 #![allow(private_bounds)]
 #![allow(clippy::should_implement_trait)]
-//! [async_compat]
-mod compat;
-pub use self::compat::*;
+//! [juniper]
+mod execute_sync;
+pub mod executor;
+mod graphql_type;
+mod graphql_value;
+pub mod http;
+mod registry;
+mod root_node;
+pub use self::execute_sync::*;
+pub use self::graphql_type::*;
+pub use self::graphql_value::*;
+pub use self::registry::*;
+pub use self::root_node::*;

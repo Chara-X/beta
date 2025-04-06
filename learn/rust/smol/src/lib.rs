@@ -10,6 +10,7 @@
 //! [smol]
 mod block_on;
 pub mod io;
+pub mod prelude;
 mod spawn;
 mod task;
 mod timer;

@@ -1,15 +1,25 @@
 //! [smol::io]
+mod assert_async;
 mod async_buf_read;
 mod async_read;
 mod async_seek;
 mod async_write;
+mod block_on;
+mod buf_reader;
 mod copy;
-mod empty;
+mod cursor;
 mod repeat;
+mod sink;
+mod split;
+pub use self::assert_async::*;
 pub use self::async_buf_read::*;
 pub use self::async_read::*;
 pub use self::async_seek::*;
 pub use self::async_write::*;
+pub use self::block_on::*;
+pub use self::buf_reader::*;
 pub use self::copy::*;
-pub use self::empty::*;
+pub use self::cursor::*;
 pub use self::repeat::*;
+pub use self::sink::*;
+pub use self::split::*;

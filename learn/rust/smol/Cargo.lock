@@ -327,6 +327,7 @@ dependencies = [
 name = "smol"
 version = "0.1.0"
 dependencies = [
+ "pin-project-lite",
  "smol 2.0.2",
 ]
 

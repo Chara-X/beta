@@ -23,6 +23,7 @@ version = "0.1.0"
 dependencies = [
  "async-compat 0.2.4",
  "futures",
+ "pin-project-lite",
  "tokio",
 ]
 

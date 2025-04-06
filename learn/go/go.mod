@@ -6,6 +6,7 @@ require (
 	bazil.org/fuse v0.0.0-20230120002735-62a210ff1fd5
 	github.com/boltdb/bolt v1.3.1
 	github.com/fsnotify/fsnotify v1.7.0
+	github.com/graphql-go/graphql v0.8.1
 	github.com/miekg/dns v1.1.62
 	github.com/playwright-community/playwright-go v0.4901.0
 	github.com/prometheus/client_golang v1.16.0
