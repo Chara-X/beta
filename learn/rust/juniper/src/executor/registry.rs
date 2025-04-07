@@ -1,7 +1,7 @@
 use juniper::meta;
 use std::collections;
-/// [juniper::Registry]
+/// [juniper::executor::Registry]
 pub struct Registry<'r> {
-    /// [juniper::Registry::types]
+    /// [juniper::executor::Registry::types]
     pub types: collections::HashMap<String, meta::MetaType<'r>>,
 }
