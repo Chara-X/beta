@@ -1,12 +1,9 @@
 use super::*;
-use std::collections;
-/// [juniper::execute_sync]
-pub fn execute_sync<'a, QueryT, MutationT, SubscriptionT>(
-    document_source: &'a str,
-    operation_name: Option<&str>,
-    root_node: &'a RootNode<'_, QueryT, MutationT, SubscriptionT>,
-    variables: &collections::HashMap<String, Value>,
+/// [juniper::introspect]
+pub fn introspect<QueryT, MutationT, SubscriptionT>(
+    root_node: &RootNode<'_, QueryT, MutationT, SubscriptionT>,
     context: &QueryT::Context,
+    format: juniper::IntrospectionFormat,
 ) -> Result<
     (
         Value,

@@ -1,15 +1,46 @@
 use super::*;
-use juniper::meta;
+use juniper::{executor, meta};
 /// [juniper::GraphQLType]
 pub trait GraphQLType: GraphQLValue {
     /// [juniper::GraphQLType::name]
     fn name() -> Option<&'static str>;
     /// [juniper::GraphQLType::meta]
-    fn meta<'r>(registry: &mut executor::Registry<'r>) -> meta::MetaType<'r>;
+    fn meta<'r>(registry: &mut Registry<'r>) -> meta::MetaType<'r>;
 }
-/// [juniper::GraphQLObject]
-pub trait GraphQLObject: GraphQLType {}
-/// [juniper::GraphQLInterface]
-pub trait GraphQLInterface: GraphQLType {}
-/// [juniper::GraphQLUnion]
-pub trait GraphQLUnion: GraphQLType {}
+/// [juniper::GraphQLValue]
+pub trait GraphQLValue {
+    /// [juniper::GraphQLValue::Context]
+    type Context;
+    /// [juniper::GraphQLValue::type_name]
+    fn type_name<'i>(&self) -> Option<&'i str>;
+    /// [juniper::GraphQLValue::concrete_type_name]
+    fn concrete_type_name(&self, context: &Self::Context) -> String {
+        todo!()
+    }
+    /// [juniper::GraphQLValue::resolve]
+    fn resolve(
+        &self,
+        selection_set: Option<&[juniper::Selection<'_>]>,
+        executor: &executor::Executor<'_, '_, Self::Context>,
+    ) -> Result<juniper::Value, juniper::FieldError> {
+        todo!()
+    }
+    /// [juniper::GraphQLValue::resolve_field]
+    fn resolve_field(
+        &self,
+        field_name: &str,
+        arguments: &juniper::Arguments<'_>,
+        executor: &executor::Executor<'_, '_, Self::Context>,
+    ) -> Result<juniper::Value, juniper::FieldError> {
+        todo!()
+    }
+    /// [juniper::GraphQLValue::resolve_into_type]
+    fn resolve_into_type(
+        &self,
+        type_name: &str,
+        selection_set: Option<&[juniper::Selection<'_>]>,
+        executor: &executor::Executor<'_, '_, Self::Context>,
+    ) -> Result<juniper::Value, juniper::FieldError> {
+        todo!()
+    }
+}

@@ -26,6 +26,20 @@ where
         todo!()
     }
 }
+impl<QueryT, MutationT, SubscriptionT> GraphQLType
+    for RootNode<'_, QueryT, MutationT, SubscriptionT>
+where
+    QueryT: GraphQLType,
+    MutationT: GraphQLType<Context = QueryT::Context>,
+    SubscriptionT: GraphQLType<Context = QueryT::Context>,
+{
+    fn name() -> Option<&'static str> {
+        todo!()
+    }
+    fn meta<'r>(registry: &mut Registry<'r>) -> juniper::meta::MetaType<'r> {
+        todo!()
+    }
+}
 impl<QueryT, MutationT, SubscriptionT> GraphQLValue
     for RootNode<'_, QueryT, MutationT, SubscriptionT>
 where
@@ -35,13 +49,6 @@ where
 {
     type Context = <QueryT as GraphQLValue>::Context;
     fn type_name<'i>(&self) -> Option<&'i str> {
-        todo!()
-    }
-    fn resolve(
-        &self,
-        selection_set: Option<&[juniper::Selection<'_>]>,
-        executor: &executor::Executor<'_, '_, Self::Context>,
-    ) -> Result<juniper::Value, juniper::FieldError> {
         todo!()
     }
 }
