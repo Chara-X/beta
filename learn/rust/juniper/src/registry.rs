@@ -14,6 +14,13 @@ impl<'r> Registry<'r> {
     {
         todo!()
     }
+    /// [juniper::executor::Registry::arg]
+    pub fn arg<T>(&mut self, name: &str) -> meta::Argument<'r, juniper::DefaultScalarValue>
+    where
+        T: GraphQLType + juniper::FromInputValue,
+    {
+        todo!()
+    }
     /// [juniper::Registry::build_object_type]
     pub fn build_object_type<T>(
         &mut self,

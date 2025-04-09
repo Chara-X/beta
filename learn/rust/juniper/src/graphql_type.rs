@@ -1,5 +1,5 @@
 use super::*;
-use juniper::{executor, meta};
+use juniper::meta;
 /// [juniper::GraphQLType]
 pub trait GraphQLType: GraphQLValue {
     /// [juniper::GraphQLType::name]
@@ -21,17 +21,17 @@ pub trait GraphQLValue {
     fn resolve(
         &self,
         selection_set: Option<&[juniper::Selection<'_>]>,
-        executor: &executor::Executor<'_, '_, Self::Context>,
-    ) -> Result<juniper::Value, juniper::FieldError> {
+        executor: &Executor<'_, '_, Self::Context>,
+    ) -> Result<Value, juniper::FieldError> {
         todo!()
     }
     /// [juniper::GraphQLValue::resolve_field]
     fn resolve_field(
         &self,
         field_name: &str,
-        arguments: &juniper::Arguments<'_>,
-        executor: &executor::Executor<'_, '_, Self::Context>,
-    ) -> Result<juniper::Value, juniper::FieldError> {
+        arguments: &Arguments<'_>,
+        executor: &Executor<'_, '_, Self::Context>,
+    ) -> Result<Value, juniper::FieldError> {
         todo!()
     }
     /// [juniper::GraphQLValue::resolve_into_type]
@@ -39,8 +39,56 @@ pub trait GraphQLValue {
         &self,
         type_name: &str,
         selection_set: Option<&[juniper::Selection<'_>]>,
-        executor: &executor::Executor<'_, '_, Self::Context>,
-    ) -> Result<juniper::Value, juniper::FieldError> {
+        executor: &Executor<'_, '_, Self::Context>,
+    ) -> Result<Value, juniper::FieldError> {
+        todo!()
+    }
+}
+
+use std::marker;
+/// [juniper::Executor]
+pub struct Executor<'r, 'a, CtxT>
+where
+    CtxT: 'a,
+{
+    _data: marker::PhantomData<(&'r (), &'a CtxT)>,
+}
+impl<'r, CtxT> Executor<'r, '_, CtxT> {
+    /// [juniper::Executor::context]
+    pub fn context(&self) -> &'r CtxT {
+        todo!()
+    }
+    /// [juniper::Executor::resolve]
+    pub fn resolve<T>(&self, value: &T) -> Result<Value, juniper::FieldError>
+    where
+        T: GraphQLValue<Context = CtxT> + ?Sized,
+    {
+        todo!()
+    }
+    /// [juniper::Executor::resolve_with_ctx]
+    pub fn resolve_with_ctx<NewCtxT, T>(&self, value: &T) -> Result<Value, juniper::FieldError>
+    where
+        NewCtxT: juniper::FromContext<CtxT>,
+        T: GraphQLValue<Context = NewCtxT> + ?Sized,
+    {
+        todo!()
+    }
+    /// [juniper::Executor::replaced_context]
+    pub fn replaced_context<'b, NewCtxT>(&'b self, ctx: &'b NewCtxT) -> Executor<'b, 'b, NewCtxT> {
+        todo!()
+    }
+}
+/// [juniper::Arguments]
+pub struct Arguments<'a> {
+    _data: marker::PhantomData<&'a ()>,
+}
+impl Arguments<'_> {
+    /// [juniper::Arguments::get]
+    pub fn get<T>(&self, name: &str) -> Result<Option<T>, juniper::FieldError>
+    where
+        T: juniper::FromInputValue,
+        T::Error: juniper::IntoFieldError,
+    {
         todo!()
     }
 }

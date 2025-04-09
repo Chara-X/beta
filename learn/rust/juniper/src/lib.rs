@@ -11,6 +11,7 @@
 mod execute_sync;
 mod graphql_type;
 mod introspect;
+pub mod meta;
 mod registry;
 mod root_node;
 mod r#type;
