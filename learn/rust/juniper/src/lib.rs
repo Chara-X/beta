@@ -9,6 +9,7 @@
 #![allow(clippy::should_implement_trait)]
 //! [juniper]
 mod execute_sync;
+mod executor;
 mod graphql_type;
 mod introspect;
 pub mod meta;
@@ -17,6 +18,7 @@ mod root_node;
 mod r#type;
 mod value;
 pub use self::execute_sync::*;
+pub use self::executor::*;
 pub use self::graphql_type::*;
 pub use self::introspect::*;
 pub use self::registry::*;

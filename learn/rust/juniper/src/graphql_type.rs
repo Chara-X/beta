@@ -1,3 +1,5 @@
+use std::marker;
+
 use super::*;
 use juniper::meta;
 /// [juniper::GraphQLType]
@@ -41,40 +43,6 @@ pub trait GraphQLValue {
         selection_set: Option<&[juniper::Selection<'_>]>,
         executor: &Executor<'_, '_, Self::Context>,
     ) -> Result<Value, juniper::FieldError> {
-        todo!()
-    }
-}
-
-use std::marker;
-/// [juniper::Executor]
-pub struct Executor<'r, 'a, CtxT>
-where
-    CtxT: 'a,
-{
-    _data: marker::PhantomData<(&'r (), &'a CtxT)>,
-}
-impl<'r, CtxT> Executor<'r, '_, CtxT> {
-    /// [juniper::Executor::context]
-    pub fn context(&self) -> &'r CtxT {
-        todo!()
-    }
-    /// [juniper::Executor::resolve]
-    pub fn resolve<T>(&self, value: &T) -> Result<Value, juniper::FieldError>
-    where
-        T: GraphQLValue<Context = CtxT> + ?Sized,
-    {
-        todo!()
-    }
-    /// [juniper::Executor::resolve_with_ctx]
-    pub fn resolve_with_ctx<NewCtxT, T>(&self, value: &T) -> Result<Value, juniper::FieldError>
-    where
-        NewCtxT: juniper::FromContext<CtxT>,
-        T: GraphQLValue<Context = NewCtxT> + ?Sized,
-    {
-        todo!()
-    }
-    /// [juniper::Executor::replaced_context]
-    pub fn replaced_context<'b, NewCtxT>(&'b self, ctx: &'b NewCtxT) -> Executor<'b, 'b, NewCtxT> {
         todo!()
     }
 }
