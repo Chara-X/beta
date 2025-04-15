@@ -10,6 +10,7 @@
 //! [std]
 pub mod alloc;
 pub mod any;
+pub mod backtrace;
 pub mod collections;
 pub mod env;
 pub mod fmt;
