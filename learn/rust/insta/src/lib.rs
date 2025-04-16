@@ -7,9 +7,10 @@
 #![allow(clippy::module_inception)]
 #![allow(private_bounds)]
 #![allow(clippy::should_implement_trait)]
-//! [anyhow]
-mod context;
-mod error;
-pub use self::context::*;
-pub use self::error::*;
-trait Sealed {}
+//! [insta]
+mod dynamic_redaction;
+mod settings;
+mod sorted_redaction;
+pub use self::dynamic_redaction::*;
+pub use self::settings::*;
+pub use self::sorted_redaction::*;
