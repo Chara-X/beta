@@ -10,7 +10,9 @@
 //! [insta]
 mod dynamic_redaction;
 mod settings;
+mod snapshot;
 mod sorted_redaction;
 pub use self::dynamic_redaction::*;
 pub use self::settings::*;
+pub use self::snapshot::*;
 pub use self::sorted_redaction::*;
